@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.text-gradient {
+  background: linear-gradient(
+    298.59deg,
+    #ffffff 33.4%,
+    rgba(255, 255, 255, 0) 170.23%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+body {
+  @apply flex min-h-screen flex-col text-white;
+  background-color: #0f0e0e;
+  background-image: url("/img/bg.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: cover;
+}
+
+.swiper-wrapper {
+  @apply items-center lg:justify-between;
+}
+
+.gradient-border {
+  @apply relative;
+}
+
+.gradient-border::before {
+  @apply absolute inset-0 rounded-2xl p-0.5 transition-all duration-300;
+  content: "";
+  background: linear-gradient(
+    160deg,
+    #ee4603 20%,
+    rgba(189, 13, 13, 0.316) 50%,
+    rgba(29, 154, 20, 0) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.gradient-border:hover::before {
+  @apply p-1;
+  background: linear-gradient(160deg, #ff0606 0%, #aa0000 100%);
+}
+
+@media screen and (min-width: 768px) {
+  .gradient-border::before {
+    @apply p-1.5;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .gradient-border::before {
+    @apply p-2;
+  }
+
+  .gradient-border:hover::before {
+    @apply p-2.5;
+  }
+  
+}
